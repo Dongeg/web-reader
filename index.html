@@ -315,7 +315,12 @@
                 	$.getJSON('data/data.json',function(data){
                 		var dataLength=data.staff.length;
                 		Container.html(data.staff[nowPage].t+data.staff[nowPage].p)
-
+                		if(nowPage<0){
+                			nowPage=0;
+                		}
+                		if(nowPage>dataLength){
+                			nowPage=dataLength;
+                		}
                 	})
                 }
 				
