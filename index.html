@@ -325,6 +325,22 @@
 				function EventHandler(){
 				//交互事件绑定
                     //翻页
+		                       $("#action_mid").swipeLeft(function(){
+					        	if(nowPage>=6)return;
+		                		nowPage+=1;
+		                		getData();
+		                		console.log(nowPage);
+		                		$(Win).scrollTop(0)
+		                		Util.StroageSetter('now_Page',nowPage)                    	
+		                    })
+		                    $("#action_mid").swipeRight(function(){
+		 			        	if(nowPage<=0)return;
+		                		nowPage-=1;
+		                		getData();
+		                		console.log(nowPage);
+		                		$(Win).scrollTop(0)
+		                		Util.StroageSetter('now_Page',nowPage)                   	
+		                    })
 			        $('#next-button').click(function(){
 			        	if(nowPage==6)return;
                 		nowPage+=1;
