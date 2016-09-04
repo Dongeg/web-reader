@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="stylesheet" href="css/Normalize-4.1.1.css" />
+		<link rel="stylesheet" href="css/icon.css" />
+		<title></title>
+		<style>
+			body{
+				font-family: "幼圆";
+				text-align: left;
+				width: 100%;
+				background: #e9dfc7;
+				color: #fff;
+			}
+			.m-read-content{
+				font-size: 18px;
+				color: #555;
+				line-height: 31px;
+				padding: 15px;
+			}
+			.m-read-content h4{
+				font-size: 20px;
+				color: #736357;
+				border-bottom: 1px solid #736357;
+				letter-spacing: 2px;
+				margin: 0 0 1em 0;
+			}
+			.m-read-content p{
+				text-indent: 2em;
+				margin: 0.5em 0;
+				letter-spacing: 0px;
+				line-height: 24px;				
+			}
+			.m-button-bar{
+				width: 70%;
+				max-width: 500px;
+				padding: 15px;
+				margin: 0 auto;
+			}
+			.u-tab{
+				padding: 0;
+				margin: 0;
+				height: 34px;
+				margin:10 auto;
+				line-height: 34px;
+				border-radius: 8px;
+				border: 1px solid #858382;
+				font-size: 12px;
+				background: #000;
+				opacity: 0.8;
+			}
+			.u-tab li{
+				list-style: none;
+				display: inline-block;
+				width: 48%;
+				border-right: 1px solid #858382;
+				text-align: center;
+				color: #fff;
+			}
+			.u-tab li:nth-child(2){
+				border-right: none;
+			}
+		    .top-nav{
+		        position: fixed;
+		        top: 0;
+		        height: 50px;
+		        width: 100%;
+		        z-index: 1;
+		        background: #000;
+		        transform: translate(0,-50px);	
+		        transition: all 0.2s;
+		        transform-origin: top;
+		    }
+		    .icon-back{
+		    	height: 50px;
+		    	width: 50px;
+		    	line-height: 50px;
+		    	display: inline-block;
+		    	text-align: center;
+		    	font-size: 1.5em;
+		    	color: #fff;
+		    }
+		    .footer-nav{
+		    	position: fixed;
+		    	bottom: 0;
+		    	width: 100%;
+		    	height: 70px;
+				transform: translate(0,70px);	
+		        transition: all 0.2s;
+		        transform-origin: bottom;
+		    }
+		    .footer-nav-content{
+		    	width: 31%;
+		    	height: 50px;
+		    	text-align: center;
+		    	padding-top: 20px;
+		    	display: inline-block;
+		    	font-size: 1.2em;
+		    	color: #fff;
+		    }
+		    .footer-nav-bg{
+		    	position: fixed;
+		    	bottom: 0;
+		    	width: 100%;
+		    	height: 70px;
+		    	background: #000;
+		    	opacity: 0.8;	
+				transform: translate(0,70px);	
+		        transition: all 0.2s;
+		        transform-origin: bottom;	    	
+		    }
+		    .nav-pannel-bg{
+		    	position: fixed;
+		    	bottom: 69px;
+		    	height: 100px;
+		    	width: 100%;
+		    	background: #000;
+		    	opacity: 0.8;
+		    	z-index: 1;
+		    }
+		    .nav-pannel{
+		    	position: fixed;
+		    	bottom: 69px;
+		    	height: 100px;
+		    	width: 100%;
+		    	z-index: 2;		    	
+		    }
+		    .child-mod{
+		    	padding: 5px 10px;
+		    	margin: 15px;
+		    }
+		    .child-mod span{
+		    	display: inline-block;
+		    	padding-right: 20px;
+		    	padding-left: 10px;
+		    }
+		    .font-size-button{
+		    	background: none;
+		    	border: 1px solid #8c8c8c;
+		    	border-radius: 16px;
+		    	padding: 5px 40px;
+		    	color: #fff;
+		    }
+		    .child-mod button:nth-child(3){
+		    	margin-left: 10px;
+		    }
+		    .bg-container{
+		    	position: relative;
+		    	width: 30px;
+		    	height: 30px;
+		    	border-radius: 50%;
+		    	background: #fff;
+		    	display: inline-block;
+		    	vertical-align: -14px;
+		    }
+		    .bg-container-current{
+		    	position: absolute;
+		    	width: 32px;
+		    	height: 32px;
+		    	border-radius: 16px;
+		    	border: 1px #ff7800 solid;
+		    	display: inline-block;
+		    	top: -2px;
+		    	left: -2px;
+		    }
+		    .child-mod div:nth-child(3){
+		    	background: rgb(235,220,204);
+		    }
+		    .child-mod div:nth-child(4){
+		    	background: rgb(202,237,207);
+		    }
+		    .child-mod div:nth-child(5){
+		    	background: rgb(235,220,204);
+		    }
+		    .child-mod div:nth-child(6){
+		    	background: rgb(42,53,72);
+		    }
+		    .artical-action-mid{
+		    	position: fixed;
+		    	z-index: 3;
+		    	width: 100%;
+		    	height: 40%;
+		    	top: 30%;
+		    }		    		    		   
+		</style>
+	</head>
+	<body id="body">
+		<div id="root" class="container">
+			<!--返回按钮层-->
+			<div id="top-nav" class="top-nav">
+				<div class="icon-back icon-arrow-left2"></div>
+			</div>
+			<!--小说标题-->
+		    <div id="fiction_chapter_title"></div>
+		    <!--内容-->
+		    <div id="fiction_content" class="m-read-content">
+		    	
+		    </div>
+		    <!--翻页-->
+		    <div class="m-button-bar">
+		    	<ul class="u-tab">
+		    		<li id="prev-button">上一章</li>
+		    		<li id="next-button">下一章</li>
+		    	</ul>
+		    </div>
+		    <!--底部导航主体背景图层-->
+		    <div class="footer-nav-bg footer" ></div>
+		    <!--底部导航主体-->
+		    <div class="footer-nav footer">
+		        <div class="footer-nav-content footer-nav-list"><span class="icon-list-unordered"></span><br><span>目录</span></div>
+		        <div class="footer-nav-content footer-nav-font"><span class="icon-font"></span><br><span>字体</span></div>
+		        <div class="footer-nav-content footer-nav-night"><span class="icon-brightness_3"></span><span><br></span>夜间</div></div>
+		    </div>
+		    <!--A背景图层-->
+		    <div class="nav-pannel-bg A" style="display: none;"></div>
+		    <!--A-->
+		    <div class="nav-pannel A" id="font-container" style="display: none;">
+		    	<div class="child-mod">
+		    		<span>字号</span>
+		    		<button id="large-font" class="font-size-button">大</button>
+		    		<button id="small-font" class="font-size-button">小</button>
+		    	</div>
+		    	<div class="child-mod">
+		    		<span>背景</span>
+		    		<div class="bg-container">
+		    			<div class="bg-container-current"></div>
+		    		</div>
+		    		<div class="bg-container">
+		    			<div class="bg-container-current"></div>
+		    		</div>	
+		    		<div class="bg-container">
+		    			<div class="bg-container-current"></div>
+		    		</div>
+		    		<div class="bg-container">
+		    			<div class="bg-container-current"></div>
+		    		</div>
+		    		<div class="bg-container">
+		    			<div class="bg-container-current"></div>
+		    		</div>			    		
+		    	</div>
+		    </div>
+		    <!--手势交互层-->
+		    <div class="m-artical-action" id="action_mid">
+		    	<div class="artical-action-mid"></div>
+		    </div>
+		</div>
+		<script src="js/Zepto.js"></script>
+		<script type="text/javascript" src="js/touch.js" ></script>
+		<script>
+			window.jQuery=$;
+		</script>
+		<script>
+			(function(){
+				
+				var Util=(function(){
+					//封装本地存储函数
+					var prefix='html5_reader_';
+					var StroageGetter=function(key){
+						return localStorage.getItem(prefix+key)
+					}
+					var StroageSetter=function(key,val){
+						return localStorage.setItem(prefix+key,val);
+					}
+										
+					return{
+						StroageGetter:StroageGetter,
+						StroageSetter:StroageSetter
+					}
+				})();
+				
+				var Dom={
+					top_nav:$('#top-nav'),
+					bottom_nav:$('.footer'),
+					switch_night:$('.footer-nav-night'),
+					font_ctrl:$('.A'),
+					font_buttom:$('.footer-nav-font'),
+					read_content:$('.m-read-content'),
+					body_bg:$('#body')
+				}
+				var Win=$(window);
+				var Doc=$(document);
+				var Container=$('#fiction_content');
+				var nowPage=Util.StroageGetter('now_Page');
+				if(!nowPage){
+					nowPage=1;
+				}
+				//设置初始字体
+				var initFontSzie=Util.StroageGetter('font_size');
+				initFontSzie=parseInt(initFontSzie);
+				if(!initFontSzie){
+					initFontSzie=18;
+				}
+				Dom.read_content.css('font-size',initFontSzie+'px');
+				//设置初始背景色和字体颜色
+				var initFontColor=Util.StroageGetter('fontColor');
+				if(!initFontColor){
+					initFontColor="#555"
+				}
+				$('.m-read-content,.m-read-content>h4').css('color',initFontColor);
+				var initBgColor=Util.StroageGetter('bgColor');
+				if(!initBgColor){
+					initBgColor="#e9dfc7"
+				}				
+				$('#body').css('background',initBgColor);
+				
+				
+				
+				
+				
+				function main(){
+					//整个项目的入口函数
+					EventHandler();
+					getData()
+				}
+				
+                function getData(){
+                	$.getJSON('data/data.json',function(data){
+                		var dataLength=data.staff.length;
+                		Container.html(data.staff[nowPage].t+data.staff[nowPage].p)
+                
+                	});
+
+                }
+				function EventHandler(){
+				//交互事件绑定
+                    //翻页
+                    
+                    //滑动翻页
+                    $("#action_mid").swipeLeft(function(){
+			        	if(nowPage>=6)return;
+                		nowPage+=1;
+                		getData();
+                		console.log(nowPage);
+                		$(Win).scrollTop(0)
+                		Util.StroageSetter('now_Page',nowPage)                    	
+                    })
+                    $("#action_mid").swipeRight(function(){
+ 			        	if(nowPage<=0)return;
+                		nowPage-=1;
+                		getData();
+                		console.log(nowPage);
+                		$(Win).scrollTop(0)
+                		Util.StroageSetter('now_Page',nowPage)                   	
+                    })
+                    //按钮翻页
+			        $('#next-button').click(function(){			   
+			        	if(nowPage>=6)return;
+                		nowPage+=1;
+                		getData();
+                		console.log(nowPage);
+                		$(Win).scrollTop(0)
+                		Util.StroageSetter('now_Page',nowPage)
+                	})
+			        $('#prev-button').click(function(){
+			        	if(nowPage<=0)return;
+                		nowPage-=1;
+                		getData();
+                		console.log(nowPage);
+                		$(Win).scrollTop(0)
+                		Util.StroageSetter('now_Page',nowPage)
+                	}) 			        
+                    //初始化fla参数
+                    var fla=Util.StroageGetter('fla');
+                    if(!fla){
+                    	fla=1;
+                    }
+
+					//点击唤出上下主面板
+					var flag=1;
+					$('#action_mid').click(function(){
+						if(flag==1){
+							Dom.top_nav.css('transform','translate(0,0)');
+							Dom.bottom_nav.css('transform','translate(0,0)');
+							flag=0;
+						}
+						else{
+						    Dom.top_nav.css('transform','translate(0,-50px)');
+							Dom.bottom_nav.css('transform','translate(0,80px)');
+							flag=1;
+							Dom.font_ctrl.hide();
+							$('.icon-font').css('color','#fff');
+						}
+					});
+					//点击唤出字体面板
+					Dom.font_buttom.click(function(){
+						if(Dom.font_ctrl.css('display')=='none'){
+							Dom.font_ctrl.show();
+							$('.icon-font').css('color','#FF7800');
+						}
+						else{
+							Dom.font_ctrl.hide();
+							$('.icon-font').css('color','#fff');
+						}
+					})
+					
+					//点击改变字体
+					$('#large-font').click(function(){
+						if(initFontSzie>25)return;
+						initFontSzie+=1;
+						Dom.read_content.css('font-size',initFontSzie+'px');
+						Util.StroageSetter('font_size',initFontSzie)
+					});
+					$('#small-font').click(function(){
+						if(initFontSzie<12)return;
+						initFontSzie-=1;
+						Dom.read_content.css('font-size',initFontSzie+'px');
+						Util.StroageSetter('font_size',initFontSzie)
+					});
+					//点击切换背景颜色
+					$('.child-mod div:nth-child(2)').click(function(){
+						Dom.body_bg.css('background','#fff');
+						$('.m-read-content,.m-read-content>h4').css('color','#555');
+						$('.icon-brightness_3').css('color','#FFFFFF');
+						Util.StroageSetter('bgColor','#fff');
+						Util.StroageSetter('fontColor','#555');
+						Util.StroageSetter('fla','1');
+					    fla=1
+					})
+					$('.child-mod div:nth-child(3)').click(function(){
+						Dom.body_bg.css('background','#e9dfc7');
+						$('.m-read-content,.m-read-content>h4').css('color','#555');
+						$('.icon-brightness_3').css('color','#FFFFFF');
+						Util.StroageSetter('bgColor','#e9dfc7');
+						Util.StroageSetter('fontColor','#555');	
+						Util.StroageSetter('fla','1');
+					    fla=1
+					})
+					$('.child-mod div:nth-child(4)').click(function(){
+						Dom.body_bg.css('background','rgb(202,237,207)');
+						$('.m-read-content,.m-read-content>h4').css('color','#555');
+						$('.icon-brightness_3').css('color','#FFFFFF');
+						Util.StroageSetter('bgColor','rgb(202,237,207)');
+						Util.StroageSetter('fontColor','#555');		
+					    fla=1
+					    Util.StroageSetter('fla','1');
+					})
+					$('.child-mod div:nth-child(5)').click(function(){
+						Dom.body_bg.css('background','rgb(235,220,204)');
+						$('.m-read-content,.m-read-content>h4').css('color','#555');
+						$('.icon-brightness_3').css('color','#FFFFFF');
+						Util.StroageSetter('bgColor','rgb(235,220,204)');
+						Util.StroageSetter('fontColor','#555');		
+						fla=1
+						Util.StroageSetter('fla','1');
+					})
+					$('.child-mod div:nth-child(6)').click(function(){
+						Dom.body_bg.css('background','rgb(42,53,72)');
+						$('.m-read-content,.m-read-content>h4').css('color','rgb(201,201,201)');
+						$('.icon-brightness_3').css('color','#FF7800');
+						Util.StroageSetter('bgColor','rgb(42,53,72)');
+						Util.StroageSetter('fontColor','rgb(201,201,201)');		
+						fla=1
+						Util.StroageSetter('fla','1');
+					})					
+					//点击切换夜间模式
+					Dom.switch_night.click(function(){
+						//触发背景切换事件
+						if(fla==1){
+							Dom.body_bg.css('background','rgb(42,53,72)');
+							$('.m-read-content,.m-read-content>h4').css('color','rgb(201,201,201)');
+							$('.icon-brightness_3').css('color','#FF7800');
+							Util.StroageSetter('bgColor','rgb(42,53,72)');
+							Util.StroageSetter('fontColor','rgb(201,201,201)');									
+							fla=0;
+							Util.StroageSetter('fla','0');
+						}
+						else if(fla==0){
+							Dom.body_bg.css('background','#e9dfc7');
+							$('.m-read-content,.m-read-content>h4').css('color','#555');
+							$('.icon-brightness_3').css('color','#FFFFFF');
+							Util.StroageSetter('bgColor','#e9dfc7');
+							Util.StroageSetter('fontColor','#555');							
+							fla=1;	
+							Util.StroageSetter('fla','1');
+						}
+						
+					});				    
+					//滚动触发事件
+					Win.scroll(function(){
+						//隐藏上下导航面板
+					    Dom.top_nav.css('transform','translate(0,-50px)');
+						Dom.bottom_nav.css('transform','translate(0,80px)');
+						flag=1;	
+						//隐藏文字控制面板
+						Dom.font_ctrl.hide();
+					})
+				}
+				
+				
+				main();
+			})();
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
